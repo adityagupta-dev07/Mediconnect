@@ -1,0 +1,140 @@
+/* ============================================================
+   booking.css — Appointment Booking & Calendar
+   ============================================================ */
+
+.booking-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  max-width: 620px;
+}
+
+/* ── Step Indicator ── */
+.booking-steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+.step.done .step-num {
+  background: var(--teal-400);
+  color: #fff;
+}
+.step.current .step-num {
+  background: var(--blue-600);
+  color: #fff;
+}
+.step-label {
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+  font-weight: 500;
+}
+.step.current .step-label {
+  color: var(--blue-800);
+  font-weight: 600;
+}
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: var(--blue-100);
+  margin: 0 8px;
+}
+
+/* ── Calendar ── */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin: var(--space-3) 0;
+}
+
+.cal-day {
+  text-align: center;
+  padding: 8px 4px;
+  font-size: var(--text-xs);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+.cal-day.header {
+  color: var(--gray-400);
+  font-weight: 500;
+  cursor: default;
+  font-size: 0.7rem;
+}
+.cal-day.available {
+  color: var(--blue-800);
+  font-weight: 500;
+}
+.cal-day.available:hover,
+.cal-day.selected {
+  background: var(--blue-600);
+  color: #fff;
+}
+.cal-day.unavailable {
+  color: var(--gray-200);
+  cursor: not-allowed;
+}
+
+/* ── Confirm Button ── */
+.confirm-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--teal-400);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  margin-top: var(--space-5);
+}
+.confirm-btn:hover {
+  background: var(--teal-600);
+}
+
+/* ── Success Message ── */
+.success-msg {
+  background: var(--teal-50);
+  border: 1.5px solid var(--teal-200);
+  border-radius: var(--radius-sm);
+  padding: var(--space-5);
+  margin-top: var(--space-5);
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+.success-msg.show {
+  display: block;
+}
+.success-msg h3 {
+  color: var(--teal-600);
+  font-size: var(--text-md);
+  margin-bottom: 4px;
+}
+.success-msg p {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
