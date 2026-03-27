@@ -1,0 +1,209 @@
+/* ============================================================
+   symptom-checker.css — Symptom Checker Panel
+   ============================================================ */
+
+.symptom-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.symptom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Tag Cloud ── */
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: var(--space-3) 0 var(--space-6);
+}
+
+.symptom-tag {
+  padding: 6px 14px;
+  background: var(--blue-50);
+  color: var(--blue-800);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+.symptom-tag:hover {
+  border-color: var(--blue-400);
+}
+.symptom-tag.selected {
+  background: var(--blue-600);
+  color: #fff;
+  border-color: var(--blue-600);
+}
+
+/* ── Analyze Button ── */
+.analyze-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--blue-600);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+.analyze-btn:hover {
+  background: var(--blue-800);
+}
+.analyze-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* ── AI Result Box ── */
+.result-box {
+  margin-top: var(--space-6);
+  display: none;
+}
+.result-box.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.result-severity {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.result-severity.mild     { background: var(--green-50);  color: var(--green-600); }
+.result-severity.moderate { background: var(--amber-50);  color: var(--amber-400); }
+.result-severity.severe   { background: var(--coral-50);  color: var(--coral-600); }
+
+.severity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.result-desc {
+  font-size: var(--text-sm);
+  color: var(--gray-800);
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+}
+
+.result-heading {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--blue-800);
+  margin-bottom: var(--space-3);
+}
+
+/* ── Suggested Doctor Cards ── */
+.suggested-docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-4);
+}
+
+.doc-card {
+  background: #F4F8FF;
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+  border: 1.5px solid var(--blue-100);
+  position: relative;
+  transition: border-color var(--transition-fast);
+}
+.doc-card.recommended {
+  border-color: var(--blue-400);
+}
+.doc-card:hover {
+  border-color: var(--blue-400);
+}
+
+.rec-badge {
+  position: absolute;
+  top: -1px;
+  right: 12px;
+  background: var(--blue-600);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 0 0 8px 8px;
+  letter-spacing: 0.04em;
+}
+
+.doc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blue-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--blue-800);
+  margin-bottom: 10px;
+}
+
+.doc-name  { font-weight: 600; font-size: var(--text-base); color: var(--blue-900); }
+.doc-spec  { font-size: var(--text-xs); color: var(--blue-600); margin-top: 2px; }
+
+.doc-meta  { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+.doc-meta-row {
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.doc-meta-row span:first-child {
+  font-weight: 500;
+  color: var(--gray-800);
+  min-width: 55px;
+}
+
+.book-doc-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  background: var(--color-surface);
+  color: var(--blue-600);
+  border: 1.5px solid var(--blue-400);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.book-doc-btn:hover {
+  background: var(--blue-600);
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .symptom-grid {
+    grid-template-columns: 1fr;
+  }
+  .symptom-card {
+    padding: var(--space-4);
+  }
+}

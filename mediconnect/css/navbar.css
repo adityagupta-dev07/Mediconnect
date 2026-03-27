@@ -1,0 +1,94 @@
+/* ============================================================
+   navbar.css — Sticky Navigation Bar
+   ============================================================ */
+
+#navbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--blue-50);
+  padding: 0 var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Logo ── */
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--blue-800);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--blue-600);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+/* ── Nav Links ── */
+.nav-links {
+  display: flex;
+  gap: 2px;
+}
+.nav-link {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  background: none;
+}
+.nav-link:hover,
+.nav-link.active {
+  background: var(--blue-50);
+  color: var(--blue-800);
+}
+
+/* ── Login Button ── */
+.nav-btn {
+  background: var(--blue-600);
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.nav-btn:hover {
+  background: var(--blue-800);
+}
+
+/* ── Responsive: hide nav links on mobile ── */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+  }
+  #navbar {
+    padding: 0 var(--space-4);
+  }
+}
